@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерия — Пиротска 123</title>
+  <meta name="description" content="3D визуализации и снимки на жилищна сграда Пиротска 123 в София.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="nav-brand">Пиротска <span>123</span></a>
+    <button class="nav-toggle" aria-label="Меню">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="apartments.html">Апартаменти</a></li>
+      <li><a href="floors.html">Етажи</a></li>
+      <li><a href="parking.html">Паркоместа</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="location.html">Локация</a></li>
+      <li><a href="about.html">За нас</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding: 3rem 0">
+  <div class="container">
+    <h1 class="text-center">Галерия</h1>
+    <p class="section-subtitle">Архитектурни визуализации на сграда Пиротска 123. Кликнете върху изображение, за да го видите в пълен размер.</p>
+
+    <h2 class="mt-4">3D визуализации</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('assets/render-corner.jpg')">
+        <img src="assets/render-corner-thumb.jpg" alt="Ъглов изглед на сградата">
+        <div class="caption">Ъглов изглед — ул. Пиротска</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/render-front.jpg')">
+        <img src="assets/render-front-thumb.jpg" alt="Фронтален изглед на сградата">
+        <div class="caption">Фронтален изглед от улицата</div>
+      </div>
+    </div>
+
+    <h2 class="mt-4">Архитектурни планове</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('assets/suteren.jpg')">
+        <img src="assets/suteren.jpg" alt="Сутерен">
+        <div class="caption">Сутерен (-2,80 м)</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/parter.jpg')">
+        <img src="assets/parter.jpg" alt="Партер">
+        <div class="caption">Партер (кота +0,00)</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('floors/img/floor-2.jpg')">
+        <img src="floors/img/floor-2-thumb.jpg" alt="2-ри етаж">
+        <div class="caption">2-ри етаж</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('floors/img/floor-3.jpg')">
+        <img src="floors/img/floor-3-thumb.jpg" alt="3-ти етаж">
+        <div class="caption">3-ти етаж</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('floors/img/floor-4.jpg')">
+        <img src="floors/img/floor-4-thumb.jpg" alt="4-ти етаж">
+        <div class="caption">4-ти етаж</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('floors/img/floor-5.jpg')">
+        <img src="floors/img/floor-5-thumb.jpg" alt="5-ти етаж">
+        <div class="caption">5-ти етаж</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('floors/img/floor-6.jpg')">
+        <img src="floors/img/floor-6-thumb.jpg" alt="6-ти етаж">
+        <div class="caption">6-ти етаж</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('floors/img/floor-7.jpg')">
+        <img src="floors/img/floor-7-thumb.jpg" alt="7-ми етаж">
+        <div class="caption">7-ми етаж (атик)</div>
+      </div>
+    </div>
+
+    <div class="info-box mt-4">
+      <strong>Снимки от строежа ще бъдат добавяни периодично</strong> с напредъка на проекта. Следете секцията за най-новите актуализации.
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <button class="lightbox-close">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Пиротска 123</h4>
+        <p style="font-size:0.92rem">Модерна жилищна сграда с подземни гаражи в центъра на София.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="apartments.html">Апартаменти</a></li>
+          <li><a href="floors.html">Етажи</a></li>
+          <li><a href="gallery.html">Галерия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li>гр. София, ул. Пиротска 123</li>
+          <li>тел.: <span class="text-muted">[предстои]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Пиротска 123. Всички права запазени. | pirotska123.bg</div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
+</body>
+</html>

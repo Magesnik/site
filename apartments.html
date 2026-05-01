@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Апартаменти — Пиротска 123</title>
+  <meta name="description" content="Разгледайте всички 37 апартамента и ателиета в сграда Пиротска 123 — площи, етажи, статус и планове.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="nav-brand">Пиротска <span>123</span></a>
+    <button class="nav-toggle" aria-label="Меню">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="apartments.html">Апартаменти</a></li>
+      <li><a href="floors.html">Етажи</a></li>
+      <li><a href="parking.html">Паркоместа</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="location.html">Локация</a></li>
+      <li><a href="about.html">За нас</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding: 3rem 0 2rem">
+  <div class="container">
+    <h1 class="text-center">Апартаменти и ателиета</h1>
+    <p class="section-subtitle">37 жилищни единици разпределени на 6 етажа. Използвайте филтрите, за да намерите това, което търсите.</p>
+
+    <div class="info-box">
+      <strong>Цените се обявяват при запитване.</strong> За актуална информация и резервация, моля използвайте бутона "Детайли" или ни <a href="contact.html">пишете директно</a>.
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label for="filter-floor">Етаж</label>
+        <select id="filter-floor">
+          <option value="">Всички</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-type">Тип</label>
+        <select id="filter-type">
+          <option value="">Всички</option>
+          <option value="апартамент">Апартамент</option>
+          <option value="ателие">Ателие</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-status">Статус</label>
+        <select id="filter-status">
+          <option value="">Всички</option>
+          <option value="available">Свободен</option>
+          <option value="reserved">Резервиран</option>
+          <option value="sold">Продаден</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-area-min">Площ от (м²)</label>
+        <input type="number" id="filter-area-min" min="0" placeholder="напр. 50">
+      </div>
+      <div class="filter-group">
+        <label for="filter-area-max">Площ до (м²)</label>
+        <input type="number" id="filter-area-max" min="0" placeholder="напр. 120">
+      </div>
+      <div class="filter-group">
+        <label>&nbsp;</label>
+        <button id="btn-reset" class="btn btn-ghost" style="width:100%">Изчисти</button>
+      </div>
+    </div>
+
+    <p id="results-summary" class="results-summary"></p>
+
+    <div id="apartments-container" class="table-wrap">
+      <table class="units" id="apartments-table">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Тип</th>
+            <th class="num">Етаж</th>
+            <th class="num">Чиста площ (м²)</th>
+            <th class="num">Обща площ (м²)</th>
+            <th>Статус</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Пиротска 123</h4>
+        <p style="font-size:0.92rem">Модерна жилищна сграда с подземни гаражи в центъра на София.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="apartments.html">Апартаменти</a></li>
+          <li><a href="floors.html">Етажи</a></li>
+          <li><a href="parking.html">Паркоместа</a></li>
+          <li><a href="gallery.html">Галерия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li>гр. София, ул. Пиротска 123</li>
+          <li>тел.: <span class="text-muted">[предстои]</span></li>
+          <li>email: <span class="text-muted">[предстои]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Пиротска 123. Всички права запазени. | pirotska123.bg</div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script src="js/apartments.js"></script>
+</body>
+</html>

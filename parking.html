@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Паркоместа и гаражи — Пиротска 123</title>
+  <meta name="description" content="Подземни гаражи, паркоместа и складове в сграда Пиротска 123.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="nav-brand">Пиротска <span>123</span></a>
+    <button class="nav-toggle" aria-label="Меню">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="apartments.html">Апартаменти</a></li>
+      <li><a href="floors.html">Етажи</a></li>
+      <li><a href="parking.html">Паркоместа</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="location.html">Локация</a></li>
+      <li><a href="about.html">За нас</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding: 3rem 0">
+  <div class="container">
+    <h1 class="text-center">Гаражи, паркоместа и търговски обекти</h1>
+    <p class="section-subtitle">Всички гаражи и паркоместа се продават отделно от апартаментите. Партерният етаж включва и две помещения, подходящи за магазин или офис.</p>
+
+    <div class="stats">
+      <div class="stat-item"><span class="number">18</span><span class="label">Гаража в сутерена</span></div>
+      <div class="stat-item"><span class="number">10</span><span class="label">Паркоместа в двора</span></div>
+      <div class="stat-item"><span class="number">9</span><span class="label">Гаража на партера</span></div>
+      <div class="stat-item"><span class="number">2</span><span class="label">Търговски обекта</span></div>
+    </div>
+
+    <!-- СУТЕРЕН -->
+    <h2 class="mt-4">Сутерен (-2,80 м)</h2>
+    <div class="floor-view">
+      <p class="text-muted">Подземно ниво с 18 гаража (клетки) и 10 паркоместа.</p>
+      <img src="assets/suteren.jpg" alt="Схема на сутерена" onclick="openLightbox(this.src)" style="cursor:zoom-in">
+    </div>
+
+    <div class="table-wrap mt-3">
+      <table class="units" id="garages-suteren">
+        <thead>
+          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th>Статус</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- ПАРТЕР -->
+    <h2 class="mt-4">Партер (кота ±0,00)</h2>
+    <div class="floor-view">
+      <p class="text-muted">Партерно ниво с 9 гаража и 2 търговски обекта (офис/магазин).</p>
+      <img src="assets/parter.jpg" alt="Схема на партера" onclick="openLightbox(this.src)" style="cursor:zoom-in">
+    </div>
+
+    <div class="table-wrap mt-3">
+      <table class="units" id="garages-parter">
+        <thead>
+          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th>Статус</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- ОФИСИ -->
+    <h2 class="mt-4">Търговски обекти</h2>
+    <div class="table-wrap">
+      <table class="units" id="offices-table">
+        <thead>
+          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th>Статус</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="info-box mt-4">
+      <strong>Цените се обявяват при запитване.</strong> За повече информация за конкретен гараж или паркомясто, <a href="contact.html">свържете се с нас</a>.
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <button class="lightbox-close">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Пиротска 123</h4>
+        <p style="font-size:0.92rem">Модерна жилищна сграда с подземни гаражи в центъра на София.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="apartments.html">Апартаменти</a></li>
+          <li><a href="floors.html">Етажи</a></li>
+          <li><a href="parking.html">Паркоместа</a></li>
+          <li><a href="gallery.html">Галерия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li>гр. София, ул. Пиротска 123</li>
+          <li>тел.: <span class="text-muted">[предстои]</span></li>
+          <li>email: <span class="text-muted">[предстои]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Пиротска 123. Всички права запазени. | pirotska123.bg</div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const data = await loadData();
+
+  // Сутерен - гаражи и паркоместа
+  const suteren = [
+    ...data.garages.filter(g => g.floor === 'сутерен').map(g => ({...g, tip: 'Гараж'})),
+    ...data.parkingSpots.map(p => ({...p, tip: 'Паркомясто'}))
+  ];
+  renderTable('garages-suteren', suteren);
+
+  // Партер - гаражи
+  const parter = data.garages.filter(g => g.floor === 'партер').map(g => ({...g, tip: 'Гараж'}));
+  renderTable('garages-parter', parter);
+
+  // Офиси
+  const offices = data.offices.map(o => ({...o, tip: o.notes || 'Офис'}));
+  renderTable('offices-table', offices);
+});
+
+function renderTable(tableId, items) {
+  const tbody = document.querySelector('#' + tableId + ' tbody');
+  tbody.innerHTML = items.map(it => `
+    <tr>
+      <td><strong>${it.id}</strong></td>
+      <td>${it.tip}</td>
+      <td class="num">${formatNumber(it.area)}</td>
+      <td><span class="status status-${it.status}">${statusLabel(it.status)}</span></td>
+      <td><a href="contact.html?unit=${it.id}" class="btn btn-ghost" style="padding:0.35rem 0.8rem;font-size:0.82rem">Запитване</a></td>
+    </tr>
+  `).join('');
+}
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
+</body>
+</html>

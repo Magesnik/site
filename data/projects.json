@@ -1,0 +1,144 @@
+{
+  "projects": [
+    {
+      "id": "varna_ul._iv._vazov_9",
+      "city": "Варна",
+      "address": "ул. Ив. Вазов 9",
+      "fullName": "Варна ул. Ив. Вазов 9",
+      "images": [
+        {
+          "src": "projects/img/varna_ul._iv._vazov_9_1.jpg",
+          "thumb": "projects/thumbs/varna_ul._iv._vazov_9_1_thumb.jpg"
+        },
+        {
+          "src": "projects/img/varna_ul._iv._vazov_9_2.jpg",
+          "thumb": "projects/thumbs/varna_ul._iv._vazov_9_2_thumb.jpg"
+        },
+        {
+          "src": "projects/img/varna_ul._iv._vazov_9_3.jpg",
+          "thumb": "projects/thumbs/varna_ul._iv._vazov_9_3_thumb.jpg"
+        },
+        {
+          "src": "projects/img/varna_ul._iv._vazov_9_4.jpg",
+          "thumb": "projects/thumbs/varna_ul._iv._vazov_9_4_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "id": "varna_bul._slivnitsa_54",
+      "city": "Варна",
+      "address": "Бул. Сливница 54",
+      "fullName": "Варна, Бул. Сливница 54",
+      "images": [
+        {
+          "src": "projects/img/varna_bul._slivnitsa_54_1.jpg",
+          "thumb": "projects/thumbs/varna_bul._slivnitsa_54_1_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "id": "varna_ul._makedonoya_97",
+      "city": "Варна",
+      "address": "ул. Македоноя 97",
+      "fullName": "Варна, ул. Македоноя 97",
+      "images": [
+        {
+          "src": "projects/img/varna_ul._makedonoya_97_1.jpg",
+          "thumb": "projects/thumbs/varna_ul._makedonoya_97_1_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sofiya_ul._antim_i_43",
+      "city": "София",
+      "address": "ул. Антим I, 43",
+      "fullName": "София ул. Антим I, 43",
+      "images": [
+        {
+          "src": "projects/img/sofiya_ul._antim_i_43_1.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._antim_i_43_1_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul._antim_i_43_2.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._antim_i_43_2_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul._antim_i_43_3.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._antim_i_43_3_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sofiya_ul._osogovo_50",
+      "city": "София",
+      "address": "ул. Осогово 50",
+      "fullName": "София ул. Осогово 50",
+      "images": [
+        {
+          "src": "projects/img/sofiya_ul._osogovo_50_1.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._osogovo_50_1_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sofiya_ul._makedoniya_97",
+      "city": "София",
+      "address": "ул. Македония 97",
+      "fullName": "София, ул. Македония 97",
+      "images": [
+        {
+          "src": "projects/img/sofiya_ul._makedoniya_97_1.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._makedoniya_97_1_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul._makedoniya_97_2.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._makedoniya_97_2_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul._makedoniya_97_3.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._makedoniya_97_3_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul._makedoniya_97_4.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._makedoniya_97_4_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sofiya_ul_petra_11-13",
+      "city": "София",
+      "address": "ул Петра 11-13",
+      "fullName": "София, ул Петра 11-13",
+      "images": [
+        {
+          "src": "projects/img/sofiya_ul_petra_11-13_1.jpg",
+          "thumb": "projects/thumbs/sofiya_ul_petra_11-13_1_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul_petra_11-13_2.jpg",
+          "thumb": "projects/thumbs/sofiya_ul_petra_11-13_2_thumb.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sofiya_ul._chernomen_2",
+      "city": "София",
+      "address": "ул. Черномен 2",
+      "fullName": "София, ул. Черномен 2",
+      "images": [
+        {
+          "src": "projects/img/sofiya_ul._chernomen_2_1.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._chernomen_2_1_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul._chernomen_2_2.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._chernomen_2_2_thumb.jpg"
+        },
+        {
+          "src": "projects/img/sofiya_ul._chernomen_2_3.jpg",
+          "thumb": "projects/thumbs/sofiya_ul._chernomen_2_3_thumb.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Етажи и планове — Пиротска 123</title>
+  <meta name="description" content="Архитектурни планове на всички етажи на сграда Пиротска 123. Партер и етажи 2-7.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="nav-brand">Пиротска <span>123</span></a>
+    <button class="nav-toggle" aria-label="Меню">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="apartments.html">Апартаменти</a></li>
+      <li><a href="floors.html">Етажи</a></li>
+      <li><a href="parking.html">Паркоместа</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="location.html">Локация</a></li>
+      <li><a href="about.html">За нас</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding: 3rem 0">
+  <div class="container">
+    <h1 class="text-center">Архитектурни планове на етажите</h1>
+    <p class="section-subtitle">Изберете етаж за да видите неговия план. Всеки чертеж може да бъде свален като PDF.</p>
+
+    <div class="floor-selector" id="floor-selector">
+      <button data-floor="parter" class="active">Партер</button>
+      <button data-floor="2">2-ри</button>
+      <button data-floor="3">3-ти</button>
+      <button data-floor="4">4-ти</button>
+      <button data-floor="5">5-ти</button>
+      <button data-floor="6">6-ти</button>
+      <button data-floor="7">7-ми</button>
+    </div>
+
+    <div id="floor-display"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <button class="lightbox-close">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Пиротска 123</h4>
+        <p style="font-size:0.92rem">Модерна жилищна сграда с подземни гаражи в центъра на София.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="apartments.html">Апартаменти</a></li>
+          <li><a href="floors.html">Етажи</a></li>
+          <li><a href="parking.html">Паркоместа</a></li>
+          <li><a href="gallery.html">Галерия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li>гр. София, ул. Пиротска 123</li>
+          <li>тел.: <span class="text-muted">[предстои]</span></li>
+          <li>email: <span class="text-muted">[предстои]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Пиротска 123. Всички права запазени. | pirotska123.bg</div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+const FLOORS = {
+  'parter': { label: 'Партер (кота +0,00)', img: 'floors/img/floor-1-parter.jpg', pdf: 'floors/pdf/floor-1-parter.pdf', desc: 'Партерно ниво с 9 гаража, 2 търговски обекта (магазин/офис), стълбищна клетка с асансьор и вътрешен двор с 10 паркоместа.' },
+  '2': { label: '2-ри етаж', img: 'floors/img/floor-2.jpg', pdf: 'floors/pdf/floor-2.pdf', desc: 'Първи жилищен етаж — 6 жилищни единици (апартаменти и ателие).' },
+  '3': { label: '3-ти етаж', img: 'floors/img/floor-3.jpg', pdf: 'floors/pdf/floor-3.pdf', desc: '8 жилищни единици — комбинация от ателиета и апартаменти с различни площи.' },
+  '4': { label: '4-ти етаж', img: 'floors/img/floor-4.jpg', pdf: 'floors/pdf/floor-4.pdf', desc: '8 жилищни единици — типов жилищен етаж.' },
+  '5': { label: '5-ти етаж', img: 'floors/img/floor-5.jpg', pdf: 'floors/pdf/floor-5.pdf', desc: '8 жилищни единици — типов жилищен етаж.' },
+  '6': { label: '6-ти етаж', img: 'floors/img/floor-6.jpg', pdf: 'floors/pdf/floor-6.pdf', desc: '5 жилищни единици с по-голяма площ.' },
+  '7': { label: '7-ми етаж (атик)', img: 'floors/img/floor-7.jpg', pdf: 'floors/pdf/floor-7.pdf', desc: 'Последен етаж с 2 големи апартамента и подпокривно пространство.' }
+};
+
+let apartmentsData = null;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try { apartmentsData = await loadData(); } catch(e) {}
+  showFloor('parter');
+
+  document.querySelectorAll('#floor-selector button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#floor-selector button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      showFloor(btn.dataset.floor);
+    });
+  });
+});
+
+function showFloor(key) {
+  const f = FLOORS[key];
+  if (!f) return;
+
+  // Намира апартаментите на този етаж
+  let unitsList = '';
+  if (apartmentsData && key !== 'parter') {
+    const units = apartmentsData.apartments.filter(a => a.floor == key);
+    if (units.length) {
+      unitsList = `
+        <div class="table-wrap mt-3">
+          <table class="units">
+            <thead><tr><th>№</th><th>Тип</th><th class="num">Чиста площ (м²)</th><th class="num">Обща площ (м²)</th><th>Статус</th></tr></thead>
+            <tbody>
+              ${units.map(a => `
+                <tr>
+                  <td><strong>${a.number}</strong></td>
+                  <td>${typeLabel(a.type)}</td>
+                  <td class="num">${formatNumber(a.area_net)}</td>
+                  <td class="num">${formatNumber(a.area_total)}</td>
+                  <td><span class="status status-${a.status}">${statusLabel(a.status)}</span></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+  }
+
+  document.getElementById('floor-display').innerHTML = `
+    <div class="floor-view">
+      <h3>${f.label}</h3>
+      <p class="text-muted">${f.desc}</p>
+      <img src="${f.img}" alt="План на ${f.label}" onclick="openLightbox(this.src)">
+      <div class="floor-actions">
+        <a href="${f.pdf}" target="_blank" class="btn btn-ghost">📄 Свали PDF</a>
+        <a href="apartments.html" class="btn btn-primary">Към списъка с апартаменти</a>
+      </div>
+      ${unitsList}
+    </div>
+  `;
+}
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+});
+</script>
+</body>
+</html>

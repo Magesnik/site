@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти — Пиротска 123</title>
+  <meta name="description" content="Свържете се с нас за информация за апартаментите в сграда Пиротска 123.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="nav-brand">Пиротска <span>123</span></a>
+    <button class="nav-toggle" aria-label="Меню">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="apartments.html">Апартаменти</a></li>
+      <li><a href="floors.html">Етажи</a></li>
+      <li><a href="parking.html">Паркоместа</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="location.html">Локация</a></li>
+      <li><a href="about.html">За нас</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding: 3rem 0">
+  <div class="container">
+    <h1 class="text-center">Свържете се с нас</h1>
+    <p class="section-subtitle">Имате въпроси за конкретен апартамент, гараж или искате да си запазите час за оглед? Пишете ни.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 2rem auto" class="contact-layout">
+
+      <!-- Форма -->
+      <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+        <h3>Запитване</h3>
+
+        <div class="field">
+          <label for="name">Име и фамилия <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="field">
+          <label for="unit">За кой обект питате?</label>
+          <input type="text" id="unit" name="unit" placeholder="напр. Апартамент 5, Гараж G3">
+        </div>
+
+        <div class="field">
+          <label for="message">Съобщение</label>
+          <textarea id="message" name="message" placeholder="Допълнителни въпроси или коментари..."></textarea>
+        </div>
+
+        <div class="field">
+          <label style="display:flex;align-items:flex-start;gap:0.5rem;font-weight:normal;font-size:0.9rem">
+            <input type="checkbox" required style="width:auto;margin-top:0.3rem">
+            <span>Съгласен/-на съм с обработката на личните ми данни съгласно политиката за поверителност.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%">Изпрати запитване</button>
+
+        <p class="text-muted mt-2" style="font-size:0.85rem; text-align: center">
+          <em>Забележка: Формата засега не изпраща съобщения автоматично. Свържете се с нас на телефона по-долу.</em>
+        </p>
+      </form>
+
+      <!-- Контактна информация -->
+      <div>
+        <h3>Контактна информация</h3>
+
+        <div style="background:white;padding:1.5rem;border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:1rem">
+          <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem">
+            <div style="font-size:1.5rem">📍</div>
+            <div>
+              <strong>Адрес</strong><br>
+              <span class="text-muted">гр. София, ул. Пиротска №123</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem">
+            <div style="font-size:1.5rem">📞</div>
+            <div>
+              <strong>Телефон</strong><br>
+              <span class="text-muted">[ще бъде добавен]</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1rem">
+            <div style="font-size:1.5rem">✉️</div>
+            <div>
+              <strong>Email</strong><br>
+              <span class="text-muted">[ще бъде добавен]</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="font-size:1.5rem">🕐</div>
+            <div>
+              <strong>Работно време</strong><br>
+              <span class="text-muted">Понеделник – Петък: 09:00 – 18:00<br>Събота: 10:00 – 14:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border)">
+          <iframe
+            src="https://www.google.com/maps?q=ul.+Pirotska+123,+Sofia,+Bulgaria&output=embed"
+            width="100%"
+            height="280"
+            style="border:0"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr !important; }
+}
+</style>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Пиротска 123</h4>
+        <p style="font-size:0.92rem">Модерна жилищна сграда с подземни гаражи в центъра на София.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="apartments.html">Апартаменти</a></li>
+          <li><a href="floors.html">Етажи</a></li>
+          <li><a href="gallery.html">Галерия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li>гр. София, ул. Пиротска 123</li>
+          <li>тел.: <span class="text-muted">[предстои]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Пиротска 123. Всички права запазени. | pirotska123.bg</div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+// Попълва полето с обект, ако дойде от друга страница (?unit=A5)
+const params = new URLSearchParams(window.location.search);
+const unit = params.get('unit');
+if (unit) {
+  document.getElementById('unit').value = unit;
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('Благодарим за запитването! Засега формата не изпраща съобщения автоматично — свържете се директно с нас на посочените контакти.');
+}
+</script>
+</body>
+</html>

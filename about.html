@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>За инвеститора — Пиротска 123</title>
+  <meta name="description" content="Реализирани жилищни проекти и опит на инвеститора зад сграда Пиротска 123.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .project-card { background: white; border-radius: var(--radius-lg); border: 1px solid var(--color-border); overflow: hidden; transition: transform .2s, box-shadow .2s; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .project-cover { aspect-ratio: 4/3; overflow: hidden; cursor: pointer; background: var(--color-light); position: relative; }
+    .project-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .project-card:hover .project-cover img { transform: scale(1.05); }
+    .project-count { position: absolute; bottom: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.7); color: white; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+    .project-info { padding: 1rem 1.25rem; }
+    .project-info .city-tag { display: inline-block; background: var(--color-light); color: var(--color-primary-dark); padding: 0.15rem 0.65rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .project-info h3 { margin: 0; font-size: 1.05rem; color: var(--color-dark); }
+    .project-thumbs { display: flex; gap: 0.5rem; padding: 0 1.25rem 1.25rem; overflow-x: auto; }
+    .project-thumbs img { width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius); cursor: pointer; border: 2px solid transparent; transition: border-color .15s; flex-shrink: 0; }
+    .project-thumbs img:hover { border-color: var(--color-accent); }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav">
+    <a href="index.html" class="nav-brand">Пиротска <span>123</span></a>
+    <button class="nav-toggle" aria-label="Меню">☰</button>
+    <ul class="nav-menu">
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="apartments.html">Апартаменти</a></li>
+      <li><a href="floors.html">Етажи</a></li>
+      <li><a href="parking.html">Паркоместа</a></li>
+      <li><a href="gallery.html">Галерия</a></li>
+      <li><a href="location.html">Локация</a></li>
+      <li><a href="about.html">За нас</a></li>
+      <li><a href="contact.html">Контакти</a></li>
+    </ul>
+  </div>
+</header>
+
+<section style="padding: 3rem 0">
+  <div class="container">
+    <h1 class="text-center">За инвеститора</h1>
+    <p class="section-subtitle">Опит, доказан с реализирани жилищни и смесени сгради в София и Варна.</p>
+
+    <div style="max-width: 800px; margin: 0 auto 3rem">
+      <h2>Нашата мисия</h2>
+      <p>Строим съвременни жилищни сгради с внимание към детайла, използвайки качествени материали и доказани архитектурни решения. Нашият приоритет е да създаваме места, които хората да наричат "дом" — с удобства, естетика и дълготрайност.</p>
+
+      <h2 class="mt-3">Опит и реализация</h2>
+      <p>През годините сме реализирали редица успешни проекти в две от най-големите градове в България — <strong>София</strong> и <strong>Варна</strong>. По-долу можете да разгледате част от нашите изпълнени обекти. Всеки от тях отразява нашия стандарт за качество и модерен дизайн.</p>
+
+      <h2 class="mt-3">Основни характеристики на нашите проекти</h2>
+      <ul>
+        <li>Монолитна стоманобетонна конструкция</li>
+        <li>Съвременна фасада с висококачествени материали</li>
+        <li>Енергоефективна дограма и топлоизолация</li>
+        <li>Просторни балкони и големи остъклявания</li>
+        <li>Асансьор с достъп до всички нива</li>
+        <li>Сигурни подземни паркинги</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Реализирани проекти</h2>
+    <p class="section-subtitle" id="projects-count">Зареждане...</p>
+
+    <div class="floor-selector" id="city-filter">
+      <button data-city="" class="active">Всички</button>
+      <button data-city="София">София</button>
+      <button data-city="Варна">Варна</button>
+    </div>
+
+    <div id="projects-grid" class="projects-grid"></div>
+
+    <div class="text-center mt-4">
+      <a href="contact.html" class="btn btn-primary">Свържете се с нас</a>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button id="lb-prev" style="position:fixed;left:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);color:white;border:none;font-size:2rem;width:48px;height:48px;border-radius:50%;cursor:pointer">‹</button>
+  <button id="lb-next" style="position:fixed;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);color:white;border:none;font-size:2rem;width:48px;height:48px;border-radius:50%;cursor:pointer">›</button>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption" style="position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);color:white;background:rgba(0,0,0,0.6);padding:0.5rem 1rem;border-radius:var(--radius);font-size:0.95rem"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Пиротска 123</h4>
+        <p style="font-size:0.92rem">Модерна жилищна сграда с подземни гаражи в центъра на София.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="apartments.html">Апартаменти</a></li>
+          <li><a href="floors.html">Етажи</a></li>
+          <li><a href="gallery.html">Галерия</a></li>
+          <li><a href="about.html">Изпълнени проекти</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li>гр. София, ул. Пиротска 123</li>
+          <li>тел.: <span class="text-muted">[предстои]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Пиротска 123. Всички права запазени. | pirotska123.bg</div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+<script>
+let projectsData = null;
+let currentFilter = '';
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch('data/projects.json');
+    projectsData = await res.json();
+    renderProjects();
+
+    document.querySelectorAll('#city-filter button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#city-filter button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.city;
+        renderProjects();
+      });
+    });
+
+    document.getElementById('lb-prev').onclick = e => { e.stopPropagation(); navigateLightbox(-1); };
+    document.getElementById('lb-next').onclick = e => { e.stopPropagation(); navigateLightbox(1); };
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+    });
+  } catch (e) {
+    document.getElementById('projects-grid').innerHTML = '<p class="text-muted text-center">Грешка при зареждане на проектите.</p>';
+  }
+});
+
+function renderProjects() {
+  const filtered = currentFilter ? projectsData.projects.filter(p => p.city === currentFilter) : projectsData.projects;
+  document.getElementById('projects-count').textContent = filtered.length + ' реализирани обекта' + (currentFilter ? ' в ' + currentFilter : '');
+
+  const grid = document.getElementById('projects-grid');
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p class="text-muted text-center">Няма проекти за тази филтрация.</p>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => `
+    <div class="project-card">
+      <div class="project-cover" onclick="openProjectGallery('${p.id}', 0)">
+        <img src="${p.images[0].thumb}" alt="${p.address}" loading="lazy">
+        ${p.images.length > 1 ? '<span class="project-count">' + p.images.length + ' снимки</span>' : ''}
+      </div>
+      <div class="project-info">
+        <span class="city-tag">${p.city || 'Обект'}</span>
+        <h3>${p.address}</h3>
+      </div>
+      ${p.images.length > 1 ? '<div class="project-thumbs">' + p.images.slice(0, 5).map((img, idx) => '<img src="' + img.thumb + '" alt="" onclick="openProjectGallery(\'' + p.id + '\', ' + idx + ')" loading="lazy">').join('') + '</div>' : ''}
+    </div>
+  `).join('');
+}
+
+function openProjectGallery(projectId, startIndex) {
+  startIndex = startIndex || 0;
+  const project = projectsData.projects.find(p => p.id === projectId);
+  if (!project) return;
+  lightboxImages = project.images.map(img => ({
+    src: img.src,
+    caption: (project.city ? project.city + ' — ' : '') + project.address
+  }));
+  lightboxIndex = startIndex;
+  showLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function showLightboxImage() {
+  const item = lightboxImages[lightboxIndex];
+  document.getElementById('lightbox-img').src = item.src;
+  document.getElementById('lightbox-caption').textContent = item.caption + ' (' + (lightboxIndex + 1) + '/' + lightboxImages.length + ')';
+}
+
+function navigateLightbox(dir) {
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  showLightboxImage();
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+</script>
+</body>
+</html>
