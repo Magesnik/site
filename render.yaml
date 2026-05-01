@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: pirotska123-site
+    env: static
+    buildCommand: ''
+    staticPublishPath: ./
