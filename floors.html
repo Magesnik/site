@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Етажи и планове — Пиротска 123</title>
-  <meta name="description" content="Архитектурни планове на всички етажи на сграда Пиротска 123. Партер и етажи 2-7.">
+  <title>Етажи и планове — PETRA HOME</title>
+  <meta name="description" content="Архитектурни планове на всички етажи на сграда PETRA HOME (ул. Пиротска 123, София). Партер и етажи 2-7.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -13,7 +13,7 @@
 
 <header class="site-header">
   <div class="nav">
-    <a href="index.html" class="nav-brand">Пиротска <span>123</span></a>
+    <a href="index.html" class="nav-brand">PETRA <span>HOME</span></a>
     <button class="nav-toggle" aria-label="Меню">☰</button>
     <ul class="nav-menu">
       <li><a href="index.html">Начало</a></li>
@@ -57,7 +57,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h4>Пиротска 123</h4>
+        <h4>PETRA HOME</h4>
         <p style="font-size:0.92rem">Модерна жилищна сграда с подземни гаражи в центъра на София.</p>
       </div>
       <div>
@@ -73,12 +73,13 @@
         <h4>Контакти</h4>
         <ul>
           <li>гр. София, ул. Пиротска 123</li>
-          <li>тел.: <span class="text-muted">[предстои]</span></li>
-          <li>email: <span class="text-muted">[предстои]</span></li>
+          <li>тел.: <a href="tel:+359888519548" style="color:inherit">0888 519 548</a></li>
+          <li>тел.: <a href="tel:+359896780701" style="color:inherit">0896 780 701</a></li>
+          <li>тел.: <a href="tel:+359882000063" style="color:inherit">0882 000 063</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 Пиротска 123. Всички права запазени. | pirotska123.bg</div>
+    <div class="footer-bottom">© 2026 PETRA HOME. Всички права запазени. | pirotska123.bg</div>
   </div>
 </footer>
 
@@ -121,7 +122,7 @@ function showFloor(key) {
       unitsList = `
         <div class="table-wrap mt-3">
           <table class="units">
-            <thead><tr><th>№</th><th>Тип</th><th class="num">Чиста площ (м²)</th><th class="num">Обща площ (м²)</th><th>Статус</th></tr></thead>
+            <thead><tr><th>№</th><th>Тип</th><th class="num">Чиста площ (м²)</th><th class="num">Обща площ (м²)</th><th class="num">Цена (лв)</th><th>Статус</th></tr></thead>
             <tbody>
               ${units.map(a => `
                 <tr>
@@ -129,6 +130,7 @@ function showFloor(key) {
                   <td>${typeLabel(a.type)}</td>
                   <td class="num">${formatNumber(a.area_net)}</td>
                   <td class="num">${formatNumber(a.area_total)}</td>
+                  <td class="num">${a.price !== null ? formatNumber(a.price, 0) : '<span class="text-muted">—</span>'}</td>
                   <td><span class="status status-${a.status}">${statusLabel(a.status)}</span></td>
                 </tr>
               `).join('')}
