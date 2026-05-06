@@ -66,7 +66,7 @@ function renderTable() {
 
   const tbody = document.querySelector('#apartments-table tbody');
   if (filteredList.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="8" class="text-center text-muted" style="padding:2rem">Няма намерени резултати. Опитайте с други филтри.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted" style="padding:2rem">Няма намерени резултати. Опитайте с други филтри.</td></tr>';
     return;
   }
 
@@ -77,7 +77,6 @@ function renderTable() {
       <td class="num">${a.floor}</td>
       <td class="num">${formatNumber(a.area_net)}</td>
       <td class="num">${formatNumber(a.area_total)}</td>
-      <td class="num">${a.price !== null ? formatNumber(a.price, 0) : '<span class="text-muted">—</span>'}</td>
       <td><span class="status status-${a.status}">${statusLabel(a.status)}</span></td>
       <td><button class="btn-ghost btn" style="padding:0.4rem 0.9rem;font-size:0.85rem" onclick="showDetails('${a.id}')">Детайли</button></td>
     </tr>
@@ -123,7 +122,7 @@ function showDetails(id) {
     ${a.notes ? `<p class="info-box"><strong>Забележка:</strong> ${a.notes}</p>` : ''}
     <div class="item" style="background:var(--color-bg);padding:1rem;border-radius:var(--radius);margin-bottom:1rem">
       <span class="label">Цена</span>
-      <span class="value">${a.price !== null ? formatNumber(a.price, 0) + ' лв' : 'При запитване'}</span>
+      <span class="value">При запитване</span>
     </div>
     ${floorImg ? `<img src="${floorImg}" alt="План на ${a.floor}-ри етаж" style="width:100%;border-radius:var(--radius);margin:1rem 0;cursor:zoom-in" onclick="window.open(this.src)">` : ''}
     <div style="display:flex;gap:0.75rem;flex-wrap:wrap">

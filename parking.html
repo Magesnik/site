@@ -8,6 +8,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+<style>
+.plan-viewer { display: none; position: fixed; inset: 0; background: #1a1a1a; z-index: 2000; flex-direction: column; }
+.plan-viewer.open { display: flex; }
+.plan-viewer-header { background: #2a2a2a; color: white; padding: 0.75rem 1.25rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3a3a3a; }
+.plan-viewer-title { font-weight: 600; font-size: 1rem; }
+.plan-viewer-controls { display: flex; gap: 0.5rem; }
+.plan-viewer-controls button { background: rgba(255,255,255,0.1); border: none; color: white; width: 36px; height: 36px; border-radius: 6px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: background .15s; }
+.plan-viewer-controls button:hover { background: rgba(255,255,255,0.2); }
+.plan-viewer-controls button.close { background: rgba(200,80,80,0.3); }
+.plan-viewer-controls button.close:hover { background: rgba(200,80,80,0.5); }
+.plan-viewer-stage { flex: 1; overflow: hidden; cursor: grab; position: relative; background: #1a1a1a; }
+.plan-viewer-stage:active { cursor: grabbing; }
+#plan-img { position: absolute; top: 50%; left: 50%; max-width: none; transform-origin: center center; transition: transform .05s ease-out; user-select: none; -webkit-user-drag: none; }
+.plan-viewer-hint { background: rgba(0,0,0,0.5); color: rgba(255,255,255,0.7); text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+</style>
 </head>
 <body>
 
@@ -50,7 +65,7 @@
     <div class="table-wrap mt-3">
       <table class="units" id="garages-suteren">
         <thead>
-          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th class="num">Цена (лв)</th><th>Статус</th><th></th></tr>
+          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th>Статус</th><th></th></tr>
         </thead>
         <tbody></tbody>
       </table>
@@ -66,7 +81,7 @@
     <div class="table-wrap mt-3">
       <table class="units" id="garages-parter">
         <thead>
-          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th class="num">Цена (лв)</th><th>Статус</th><th></th></tr>
+          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th>Статус</th><th></th></tr>
         </thead>
         <tbody></tbody>
       </table>
@@ -77,22 +92,33 @@
     <div class="table-wrap">
       <table class="units" id="offices-table">
         <thead>
-          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th class="num">Цена (лв)</th><th>Статус</th><th></th></tr>
+          <tr><th>№</th><th>Тип</th><th class="num">Площ (м²)</th><th>Статус</th><th></th></tr>
         </thead>
         <tbody></tbody>
       </table>
     </div>
 
     <div class="info-box mt-4">
-      <strong>Цените са ориентировъчни.</strong> За потвърждение на наличност, окончателна цена и оглед, моля <a href="contact.html">свържете се с нас</a>.
+      <strong>За цени, наличност и оглед</strong> моля <a href="contact.html">свържете се с нас</a>.
     </div>
   </div>
 </section>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
-  <button class="lightbox-close">×</button>
-  <img id="lightbox-img" src="" alt="">
+<!-- Interactive Plan Viewer -->
+<div class="plan-viewer" id="plan-viewer">
+  <div class="plan-viewer-header">
+    <div class="plan-viewer-title" id="plan-viewer-title"></div>
+    <div class="plan-viewer-controls">
+      <button onclick="planZoom(0.8)" title="Намали">−</button>
+      <button onclick="planResetZoom()" title="Възстанови">⟲</button>
+      <button onclick="planZoom(1.25)" title="Увеличи">+</button>
+      <button onclick="closePlanViewer()" title="Затвори" class="close">×</button>
+    </div>
+  </div>
+  <div class="plan-viewer-stage" id="plan-stage">
+    <img id="plan-img" src="" alt="" draggable="false">
+  </div>
+  <div class="plan-viewer-hint">Скрол за уголемяване · Влачи за местене · Двоен клик нулира</div>
 </div>
 
 <footer class="site-footer">
@@ -153,19 +179,66 @@ function renderTable(tableId, items) {
       <td><strong>${it.id}</strong></td>
       <td>${it.tip}</td>
       <td class="num">${formatNumber(it.area)}</td>
-      <td class="num">${it.price !== null && it.price !== undefined ? formatNumber(it.price, 0) : '<span class="text-muted">—</span>'}</td>
       <td><span class="status status-${it.status}">${statusLabel(it.status)}</span></td>
       <td><a href="contact.html?unit=${it.id}" class="btn btn-ghost" style="padding:0.35rem 0.8rem;font-size:0.82rem">Запитване</a></td>
     </tr>
   `).join('');
 }
 
+// Plan viewer logic
+let planZoomLevel = 1, planTx = 0, planTy = 0;
+let planDragging = false, planStartX = 0, planStartY = 0;
+
 function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox').classList.add('open');
+  // Mapping for HD versions (parking има само assets/parter.jpg и assets/suteren.jpg)
+  const img = document.getElementById('plan-img');
+  img.src = src;
+  const title = src.includes('parter') ? 'Партер (кота ±0,00)' : src.includes('suteren') ? 'Сутерен (-2,80 м)' : 'План';
+  document.getElementById('plan-viewer-title').textContent = title;
+  planResetZoom();
+  document.getElementById('plan-viewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
+function closePlanViewer() {
+  document.getElementById('plan-viewer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function planResetZoom() { planZoomLevel = 1; planTx = 0; planTy = 0; applyPlanTransform(); }
+function planZoom(factor) { planZoomLevel = Math.max(0.3, Math.min(8, planZoomLevel * factor)); applyPlanTransform(); }
+function applyPlanTransform() {
+  const img = document.getElementById('plan-img');
+  img.style.transform = `translate(calc(-50% + ${planTx}px), calc(-50% + ${planTy}px)) scale(${planZoomLevel})`;
+}
+
+document.addEventListener('mousedown', e => {
+  if (!e.target.closest('#plan-stage') || e.target.tagName !== 'IMG') return;
+  planDragging = true; planStartX = e.clientX - planTx; planStartY = e.clientY - planTy;
+  e.preventDefault();
+});
+document.addEventListener('mousemove', e => {
+  if (!planDragging) return;
+  planTx = e.clientX - planStartX; planTy = e.clientY - planStartY;
+  applyPlanTransform();
+});
+document.addEventListener('mouseup', () => { planDragging = false; });
+document.addEventListener('wheel', e => {
+  if (!document.getElementById('plan-viewer').classList.contains('open')) return;
+  if (!e.target.closest('#plan-stage')) return;
+  e.preventDefault();
+  planZoom(e.deltaY < 0 ? 1.15 : 0.87);
+}, { passive: false });
+
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+  if (!document.getElementById('plan-viewer').classList.contains('open')) return;
+  if (e.key === 'Escape') closePlanViewer();
+  if (e.key === '+' || e.key === '=') planZoom(1.2);
+  if (e.key === '-') planZoom(0.83);
+  if (e.key === '0') planResetZoom();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const stage = document.getElementById('plan-stage');
+  if (stage) stage.addEventListener('dblclick', planResetZoom);
 });
 </script>
 </body>
