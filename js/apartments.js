@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function initFilters() {
-  // Попълваме филтъра за етажи
   const floors = [...new Set(allData.apartments.map(a => a.floor))].sort((a,b) => a-b);
   const floorSel = document.getElementById('filter-floor');
   floors.forEach(f => {
@@ -27,7 +26,6 @@ function initFilters() {
     floorSel.appendChild(opt);
   });
 
-  // Закачаме event listeners
   ['filter-floor', 'filter-type', 'filter-status', 'filter-area-min', 'filter-area-max']
     .forEach(id => {
       const el = document.getElementById(id);
@@ -84,15 +82,14 @@ function renderTable() {
   `).join('');
 }
 
-// Бутон с миниатюра на плана (или disabled placeholder, ако още няма снимка)
 function planThumbButton(a) {
-  if (a.plan_image) {
-    const thumb = a.plan_thumb || a.plan_image;
+  const thumbSrc = a.scheme_thumb || a.scheme_image || a.plan_thumb || a.plan_image;
+  if (thumbSrc) {
     return `<button class="plan-thumb-btn" title="Виж плана на ${typeLabel(a.type).toLowerCase()} №${a.number}" onclick="openApartmentImage('${a.id}')">
-      <img src="${thumb}" alt="План на ${typeLabel(a.type)} №${a.number}" loading="lazy">
+      <img src="${thumbSrc}" alt="План на ${typeLabel(a.type)} №${a.number}" loading="lazy">
     </button>`;
   }
-  return `<span class="plan-thumb-empty" title="Снимка на този апартамент скоро">—</span>`;
+  return `<span class="plan-thumb-empty" title="Скица скоро">—</span>`;
 }
 
 function showDetails(id) {
@@ -137,17 +134,36 @@ function showDetails(id) {
       <span class="value">При запитване</span>
     </div>
 
-    ${a.plan_image ? `
+    ${(a.scheme_image || a.plan_image) ? `
       <div class="apt-plan-block">
         <div class="apt-plan-header">
-          <h4 style="margin:0">Илюстративен план на ${typeLabel(a.type).toLowerCase()}а</h4>
-          <span class="apt-plan-badge">AI визуализация</span>
+          <h4 style="margin:0">План на ${typeLabel(a.type).toLowerCase()}а</h4>
+          ${a.scheme_image && a.plan_image ? `
+            <div class="apt-plan-tabs" role="tablist">
+              <button type="button" class="apt-plan-tab active" data-tab="scheme" onclick="switchPlanTab('${a.id}','scheme')">📐 Скица</button>
+              <button type="button" class="apt-plan-tab" data-tab="render" onclick="switchPlanTab('${a.id}','render')">🛋 Визуализация</button>
+            </div>
+          ` : ''}
         </div>
-        <img src="${a.plan_image}" alt="План на ${typeLabel(a.type)} №${a.number}"
-             class="apt-plan-img"
-             onclick="openApartmentImage('${a.id}')"
-             loading="lazy">
-        <p class="apt-plan-note">Изображението е генерирано от изкуствен интелект по архитектурната скица и служи единствено за илюстрация на разпределението. Клик за уголемяване.</p>
+
+        ${a.scheme_image ? `
+          <img src="${a.scheme_image}" alt="Скица на ${typeLabel(a.type)} №${a.number}"
+               class="apt-plan-img apt-plan-pane active"
+               data-pane="scheme"
+               onclick="openApartmentImage('${a.id}','scheme')"
+               loading="lazy">
+        ` : ''}
+        ${a.plan_image ? `
+          <img src="${a.plan_image}" alt="Визуализация на ${typeLabel(a.type)} №${a.number}"
+               class="apt-plan-img apt-plan-pane ${a.scheme_image ? '' : 'active'}"
+               data-pane="render"
+               onclick="openApartmentImage('${a.id}','render')"
+               loading="lazy">
+        ` : ''}
+
+        <p class="apt-plan-note apt-plan-note-warning">
+          ⚠️ Визуализациите са създадени с изкуствен интелект по архитектурната скица и са илюстративни. Реалното обзавеждане и довършителните работи не са включени в цената.
+        </p>
       </div>
     ` : ''}
 
@@ -160,18 +176,38 @@ function showDetails(id) {
   document.getElementById('modal').classList.add('open');
 }
 
-// ============================================
-// Image viewer за плановете на апартаментите
-// (zoom + pan + pinch — както на страница „Етажи")
-// ============================================
-function openApartmentImage(id) {
-  const a = allData.apartments.find(x => x.id === id);
-  if (!a || !a.plan_image) return;
-  const title = `${typeLabel(a.type)} №${a.number} — илюстративен план`;
-  openImageViewer(a.plan_image, title);
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
 }
 
-// Глобален viewer (инжектиран веднъж в DOM при първо ползване)
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+function switchPlanTab(id, which) {
+  const modalBody = document.getElementById('modal-body');
+  if (!modalBody) return;
+  modalBody.querySelectorAll('.apt-plan-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === which);
+  });
+  modalBody.querySelectorAll('.apt-plan-pane').forEach(img => {
+    img.classList.toggle('active', img.dataset.pane === which);
+  });
+}
+
+function openApartmentImage(id, pane) {
+  const a = allData.apartments.find(x => x.id === id);
+  if (!a) return;
+  if (!pane) {
+    const activePane = document.querySelector('.apt-plan-pane.active');
+    pane = activePane ? activePane.dataset.pane : (a.scheme_image ? 'scheme' : 'render');
+  }
+  const src = (pane === 'render') ? a.plan_image : (a.scheme_image || a.plan_image);
+  if (!src) return;
+  const label = (pane === 'render') ? 'визуализация' : 'скица';
+  openImageViewer(src, `${typeLabel(a.type)} №${a.number} — ${label}`);
+}
+
 let imgViewerState = { zoom: 1, tx: 0, ty: 0, dragging: false, startX: 0, startY: 0,
                        touchStartDist: 0, touchStartZoom: 1, initialized: false };
 
@@ -215,9 +251,7 @@ function closeImageViewer() {
 }
 
 function aptImgResetZoom() {
-  imgViewerState.zoom = 1;
-  imgViewerState.tx = 0;
-  imgViewerState.ty = 0;
+  imgViewerState.zoom = 1; imgViewerState.tx = 0; imgViewerState.ty = 0;
   applyImgTransform();
 }
 function aptImgZoom(factor) {
@@ -235,7 +269,6 @@ function bindImageViewerEvents() {
   imgViewerState.initialized = true;
   const stage = document.getElementById('apt-img-stage');
 
-  // Mouse drag
   document.addEventListener('mousedown', e => {
     if (!e.target.closest('#apt-img-stage')) return;
     if (e.target.tagName !== 'IMG') return;
@@ -252,7 +285,6 @@ function bindImageViewerEvents() {
   });
   document.addEventListener('mouseup', () => { imgViewerState.dragging = false; });
 
-  // Wheel zoom
   document.addEventListener('wheel', e => {
     const v = document.getElementById('apt-img-viewer');
     if (!v || !v.classList.contains('open')) return;
@@ -261,7 +293,6 @@ function bindImageViewerEvents() {
     aptImgZoom(e.deltaY < 0 ? 1.15 : 0.87);
   }, { passive: false });
 
-  // Touch (pinch + drag)
   document.addEventListener('touchstart', e => {
     if (!e.target.closest('#apt-img-stage')) return;
     if (e.touches.length === 2) {
@@ -293,10 +324,8 @@ function bindImageViewerEvents() {
   }, { passive: false });
   document.addEventListener('touchend', () => { imgViewerState.dragging = false; });
 
-  // Double click reset
   stage.addEventListener('dblclick', aptImgResetZoom);
 
-  // Keyboard
   document.addEventListener('keydown', e => {
     const v = document.getElementById('apt-img-viewer');
     if (!v || !v.classList.contains('open')) return;
@@ -306,12 +335,3 @@ function bindImageViewerEvents() {
     if (e.key === '0') aptImgResetZoom();
   });
 }
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-}
-
-// Затваряне на модал с ESC
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});

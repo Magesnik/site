@@ -28,7 +28,9 @@
       "price": null,
       "notes": "",
       "plan_image": "apartments/img/floor-2/apt-1.jpg",
-      "plan_thumb": "apartments/thumbs/floor-2/apt-1-thumb.jpg"
+      "plan_thumb": "apartments/thumbs/floor-2/apt-1-thumb.jpg",
+      "scheme_image": "apartments/scheme/floor-2/apt-1.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-2/apt-1-thumb.jpg"
     },
     {
       "id": "A2",
@@ -43,7 +45,9 @@
       "price": null,
       "notes": "",
       "plan_image": "apartments/img/floor-2/apt-2.jpg",
-      "plan_thumb": "apartments/thumbs/floor-2/apt-2-thumb.jpg"
+      "plan_thumb": "apartments/thumbs/floor-2/apt-2-thumb.jpg",
+      "scheme_image": "apartments/scheme/floor-2/apt-2.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-2/apt-2-thumb.jpg"
     },
     {
       "id": "A3",
@@ -58,7 +62,9 @@
       "price": null,
       "notes": "",
       "plan_image": "apartments/img/floor-2/apt-3.jpg",
-      "plan_thumb": "apartments/thumbs/floor-2/apt-3-thumb.jpg"
+      "plan_thumb": "apartments/thumbs/floor-2/apt-3-thumb.jpg",
+      "scheme_image": "apartments/scheme/floor-2/apt-3.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-2/apt-3-thumb.jpg"
     },
     {
       "id": "A4",
@@ -73,7 +79,9 @@
       "price": 123900,
       "notes": "",
       "plan_image": "apartments/img/floor-2/apt-4.jpg",
-      "plan_thumb": "apartments/thumbs/floor-2/apt-4-thumb.jpg"
+      "plan_thumb": "apartments/thumbs/floor-2/apt-4-thumb.jpg",
+      "scheme_image": "apartments/scheme/floor-2/apt-4.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-2/apt-4-thumb.jpg"
     },
     {
       "id": "A5",
@@ -88,7 +96,9 @@
       "price": 133500,
       "notes": "",
       "plan_image": "apartments/img/floor-2/apt-5.jpg",
-      "plan_thumb": "apartments/thumbs/floor-2/apt-5-thumb.jpg"
+      "plan_thumb": "apartments/thumbs/floor-2/apt-5-thumb.jpg",
+      "scheme_image": "apartments/scheme/floor-2/apt-5.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-2/apt-5-thumb.jpg"
     },
     {
       "id": "A6",
@@ -103,7 +113,9 @@
       "price": 199500,
       "notes": "",
       "plan_image": "apartments/img/floor-2/apt-6.jpg",
-      "plan_thumb": "apartments/thumbs/floor-2/apt-6-thumb.jpg"
+      "plan_thumb": "apartments/thumbs/floor-2/apt-6-thumb.jpg",
+      "scheme_image": "apartments/scheme/floor-2/apt-6.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-2/apt-6-thumb.jpg"
     },
     {
       "id": "A7",
@@ -118,7 +130,9 @@
       "price": 103500,
       "notes": "",
       "plan_image": "apartments/img/floor-2/apt-7.jpg",
-      "plan_thumb": "apartments/thumbs/floor-2/apt-7-thumb.jpg"
+      "plan_thumb": "apartments/thumbs/floor-2/apt-7-thumb.jpg",
+      "scheme_image": "apartments/scheme/floor-2/apt-7.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-2/apt-7-thumb.jpg"
     },
     {
       "id": "A8",

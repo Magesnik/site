@@ -214,9 +214,9 @@ function showFloor(key) {
                   <td class="num">${formatNumber(a.area_net)}</td>
                   <td class="num">${formatNumber(a.area_total)}</td>
                   <td><span class="status status-${a.status}">${statusLabel(a.status)}</span></td>
-                  <td class="col-plan">${a.plan_image
-                    ? `<button class="plan-thumb-btn" title="Виж плана на ${typeLabel(a.type).toLowerCase()} №${a.number}" onclick="openFloorUnitImage('${a.id}')"><img src="${a.plan_thumb || a.plan_image}" alt="План на ${typeLabel(a.type)} №${a.number}" loading="lazy"></button>`
-                    : `<span class="plan-thumb-empty" title="Снимка скоро">—</span>`}</td>
+                  <td class="col-plan">${(a.scheme_image || a.plan_image)
+                    ? `<button class="plan-thumb-btn" title="Виж плана на ${typeLabel(a.type).toLowerCase()} №${a.number}" onclick="openFloorUnitImage('${a.id}')"><img src="${a.scheme_thumb || a.scheme_image || a.plan_thumb || a.plan_image}" alt="План на ${typeLabel(a.type)} №${a.number}" loading="lazy"></button>`
+                    : `<span class="plan-thumb-empty" title="Скица скоро">—</span>`}</td>
                 </tr>
               `).join('')}
             </tbody>
@@ -262,15 +262,19 @@ function openPlanViewer(src, title) {
   document.body.style.overflow = 'hidden';
 }
 
-// Отваря снимка на конкретен апартамент (от списъка под етажния план)
+// Отваря изображение на конкретен апартамент (от списъка под етажния план)
+// Приоритет на скицата (тя е технически точна), fallback към визуализацията
 function openFloorUnitImage(id) {
   if (!apartmentsData) return;
   const a = apartmentsData.apartments.find(x => x.id === id);
-  if (!a || !a.plan_image) return;
+  if (!a) return;
+  const src = a.scheme_image || a.plan_image;
+  if (!src) return;
+  const label = a.scheme_image ? 'скица' : 'визуализация';
   const img = document.getElementById('plan-img');
-  img.src = a.plan_image;
+  img.src = src;
   document.getElementById('plan-viewer-title').textContent =
-    `${typeLabel(a.type)} №${a.number} — илюстративен план`;
+    `${typeLabel(a.type)} №${a.number} — ${label}`;
   planResetZoom();
   document.getElementById('plan-viewer').classList.add('open');
   document.body.style.overflow = 'hidden';
