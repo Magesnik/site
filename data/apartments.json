@@ -26,7 +26,9 @@
       "ideal_pct": 1.8462,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "plan_image": "apartments/img/floor-2/apt-1.jpg",
+      "plan_thumb": "apartments/thumbs/floor-2/apt-1-thumb.jpg"
     },
     {
       "id": "A2",
@@ -39,7 +41,9 @@
       "ideal_pct": 3.7054,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "plan_image": "apartments/img/floor-2/apt-2.jpg",
+      "plan_thumb": "apartments/thumbs/floor-2/apt-2-thumb.jpg"
     },
     {
       "id": "A3",
@@ -52,7 +56,9 @@
       "ideal_pct": 1.793,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "plan_image": "apartments/img/floor-2/apt-3.jpg",
+      "plan_thumb": "apartments/thumbs/floor-2/apt-3-thumb.jpg"
     },
     {
       "id": "A4",
@@ -65,7 +71,9 @@
       "ideal_pct": 1.4316,
       "status": "sold",
       "price": 123900,
-      "notes": ""
+      "notes": "",
+      "plan_image": "apartments/img/floor-2/apt-4.jpg",
+      "plan_thumb": "apartments/thumbs/floor-2/apt-4-thumb.jpg"
     },
     {
       "id": "A5",
@@ -78,7 +86,9 @@
       "ideal_pct": 1.5429,
       "status": "available",
       "price": 133500,
-      "notes": ""
+      "notes": "",
+      "plan_image": "apartments/img/floor-2/apt-5.jpg",
+      "plan_thumb": "apartments/thumbs/floor-2/apt-5-thumb.jpg"
     },
     {
       "id": "A6",
@@ -91,7 +101,9 @@
       "ideal_pct": 2.2957,
       "status": "available",
       "price": 199500,
-      "notes": ""
+      "notes": "",
+      "plan_image": "apartments/img/floor-2/apt-6.jpg",
+      "plan_thumb": "apartments/thumbs/floor-2/apt-6-thumb.jpg"
     },
     {
       "id": "A7",
@@ -104,7 +116,9 @@
       "ideal_pct": 1.2159,
       "status": "sold",
       "price": 103500,
-      "notes": ""
+      "notes": "",
+      "plan_image": "apartments/img/floor-2/apt-7.jpg",
+      "plan_thumb": "apartments/thumbs/floor-2/apt-7-thumb.jpg"
     },
     {
       "id": "A8",

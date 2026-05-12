@@ -205,7 +205,7 @@ function showFloor(key) {
       unitsList = `
         <div class="table-wrap mt-3">
           <table class="units">
-            <thead><tr><th>№</th><th>Тип</th><th class="num">Чиста площ (м²)</th><th class="num">Обща площ (м²)</th><th>Статус</th></tr></thead>
+            <thead><tr><th>№</th><th>Тип</th><th class="num">Чиста площ (м²)</th><th class="num">Обща площ (м²)</th><th>Статус</th><th class="col-plan">План</th></tr></thead>
             <tbody>
               ${units.map(a => `
                 <tr>
@@ -214,6 +214,9 @@ function showFloor(key) {
                   <td class="num">${formatNumber(a.area_net)}</td>
                   <td class="num">${formatNumber(a.area_total)}</td>
                   <td><span class="status status-${a.status}">${statusLabel(a.status)}</span></td>
+                  <td class="col-plan">${a.plan_image
+                    ? `<button class="plan-thumb-btn" title="Виж плана на ${typeLabel(a.type).toLowerCase()} №${a.number}" onclick="openFloorUnitImage('${a.id}')"><img src="${a.plan_thumb || a.plan_image}" alt="План на ${typeLabel(a.type)} №${a.number}" loading="lazy"></button>`
+                    : `<span class="plan-thumb-empty" title="Снимка скоро">—</span>`}</td>
                 </tr>
               `).join('')}
             </tbody>
@@ -254,6 +257,20 @@ function openPlanViewer(src, title) {
   test.src = hdSrc;
 
   document.getElementById('plan-viewer-title').textContent = title || 'План на етажа';
+  planResetZoom();
+  document.getElementById('plan-viewer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// Отваря снимка на конкретен апартамент (от списъка под етажния план)
+function openFloorUnitImage(id) {
+  if (!apartmentsData) return;
+  const a = apartmentsData.apartments.find(x => x.id === id);
+  if (!a || !a.plan_image) return;
+  const img = document.getElementById('plan-img');
+  img.src = a.plan_image;
+  document.getElementById('plan-viewer-title').textContent =
+    `${typeLabel(a.type)} №${a.number} — илюстративен план`;
   planResetZoom();
   document.getElementById('plan-viewer').classList.add('open');
   document.body.style.overflow = 'hidden';
