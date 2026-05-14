@@ -145,7 +145,11 @@
       "ideal_pct": 1.3266,
       "status": "sold",
       "price": 118300,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-3/apt-8.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-3/apt-8-thumb.jpg",
+      "plan_image": "apartments/img/floor-3/apt-8.jpg",
+      "plan_thumb": "apartments/thumbs/floor-3/apt-8-thumb.jpg"
     },
     {
       "id": "A9",
@@ -158,7 +162,11 @@
       "ideal_pct": 1.8528,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-3/apt-9.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-3/apt-9-thumb.jpg",
+      "plan_image": "apartments/img/floor-3/apt-9.jpg",
+      "plan_thumb": "apartments/thumbs/floor-3/apt-9-thumb.jpg"
     },
     {
       "id": "A10",
@@ -171,7 +179,11 @@
       "ideal_pct": 2.8524,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-3/apt-10.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-3/apt-10-thumb.jpg",
+      "plan_image": "apartments/img/floor-3/apt-10.jpg",
+      "plan_thumb": "apartments/thumbs/floor-3/apt-10-thumb.jpg"
     },
     {
       "id": "A11",
@@ -184,7 +196,11 @@
       "ideal_pct": 1.793,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-3/apt-11.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-3/apt-11-thumb.jpg",
+      "plan_image": "apartments/img/floor-3/apt-11.jpg",
+      "plan_thumb": "apartments/thumbs/floor-3/apt-11-thumb.jpg"
     },
     {
       "id": "A12",
@@ -197,7 +213,11 @@
       "ideal_pct": 1.4316,
       "status": "sold",
       "price": 129800,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-3/apt-12.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-3/apt-12-thumb.jpg",
+      "plan_image": "apartments/img/floor-3/apt-12.jpg",
+      "plan_thumb": "apartments/thumbs/floor-3/apt-12-thumb.jpg"
     },
     {
       "id": "A13",
@@ -210,7 +230,11 @@
       "ideal_pct": 4.0831,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-3/apt-13.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-3/apt-13-thumb.jpg",
+      "plan_image": "apartments/img/floor-3/apt-13.jpg",
+      "plan_thumb": "apartments/thumbs/floor-3/apt-13-thumb.jpg"
     },
     {
       "id": "A14",
@@ -223,7 +247,11 @@
       "ideal_pct": 1.4242,
       "status": "sold",
       "price": 127000,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-3/apt-14.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-3/apt-14-thumb.jpg",
+      "plan_image": "apartments/img/floor-3/apt-14.jpg",
+      "plan_thumb": "apartments/thumbs/floor-3/apt-14-thumb.jpg"
     },
     {
       "id": "A15",
@@ -236,7 +264,11 @@
       "ideal_pct": 1.3266,
       "status": "sold",
       "price": 123800,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-15.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-15-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-15.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-15-thumb.jpg"
     },
     {
       "id": "A16",
@@ -249,7 +281,11 @@
       "ideal_pct": 1.8528,
       "status": "available",
       "price": 176400,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-16.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-16-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-16.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-16-thumb.jpg"
     },
     {
       "id": "A17",
@@ -262,7 +298,11 @@
       "ideal_pct": 2.8524,
       "status": "available",
       "price": 270700,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-17.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-17-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-17.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-17-thumb.jpg"
     },
     {
       "id": "A18",
@@ -275,7 +315,11 @@
       "ideal_pct": 1.793,
       "status": "sold",
       "price": 177360,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-18.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-18-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-18.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-18-thumb.jpg"
     },
     {
       "id": "A19",
@@ -288,7 +332,11 @@
       "ideal_pct": 1.4316,
       "status": "available",
       "price": 141600,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-19.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-19-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-19.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-19-thumb.jpg"
     },
     {
       "id": "A20",
@@ -301,7 +349,11 @@
       "ideal_pct": 1.5429,
       "status": "sold",
       "price": 152600,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-20.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-20-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-20.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-20-thumb.jpg"
     },
     {
       "id": "A21",
@@ -314,7 +366,11 @@
       "ideal_pct": 2.4721,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-21.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-21-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-21.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-21-thumb.jpg"
     },
     {
       "id": "A22",
@@ -327,7 +383,11 @@
       "ideal_pct": 1.4242,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-4/apt-22.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-4/apt-22-thumb.jpg",
+      "plan_image": "apartments/img/floor-4/apt-22.jpg",
+      "plan_thumb": "apartments/thumbs/floor-4/apt-22-thumb.jpg"
     },
     {
       "id": "A23",
@@ -340,7 +400,11 @@
       "ideal_pct": 1.3266,
       "status": "sold",
       "price": 126600,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-23.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-23-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-23.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-23-thumb.jpg"
     },
     {
       "id": "A24",
@@ -353,7 +417,11 @@
       "ideal_pct": 1.8528,
       "status": "available",
       "price": 183600,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-24.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-24-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-24.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-24-thumb.jpg"
     },
     {
       "id": "A25",
@@ -366,7 +434,11 @@
       "ideal_pct": 2.8524,
       "status": "available",
       "price": 283000,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-25.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-25-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-25.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-25-thumb.jpg"
     },
     {
       "id": "A26",
@@ -379,7 +451,11 @@
       "ideal_pct": 1.793,
       "status": "sold",
       "price": 177360,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-26.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-26-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-26.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-26-thumb.jpg"
     },
     {
       "id": "A27",
@@ -392,7 +468,11 @@
       "ideal_pct": 1.4316,
       "status": "sold",
       "price": 141600,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-27.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-27-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-27.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-27-thumb.jpg"
     },
     {
       "id": "A28",
@@ -405,7 +485,11 @@
       "ideal_pct": 1.5429,
       "status": "sold",
       "price": 152600,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-28.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-28-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-28.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-28-thumb.jpg"
     },
     {
       "id": "A29",
@@ -418,7 +502,11 @@
       "ideal_pct": 2.4721,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-29.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-29-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-29.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-29-thumb.jpg"
     },
     {
       "id": "A30",
@@ -431,7 +519,11 @@
       "ideal_pct": 1.4242,
       "status": "sold",
       "price": null,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-5/apt-30.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-5/apt-30-thumb.jpg",
+      "plan_image": "apartments/img/floor-5/apt-30.jpg",
+      "plan_thumb": "apartments/thumbs/floor-5/apt-30-thumb.jpg"
     },
     {
       "id": "A31",
@@ -444,7 +536,11 @@
       "ideal_pct": 1.3266,
       "status": "available",
       "price": 126600,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-6/apt-31.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-6/apt-31-thumb.jpg",
+      "plan_image": "apartments/img/floor-6/apt-31.jpg",
+      "plan_thumb": "apartments/thumbs/floor-6/apt-31-thumb.jpg"
     },
     {
       "id": "A32",
@@ -457,7 +553,11 @@
       "ideal_pct": 3.4076,
       "status": "available",
       "price": 346500,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-6/apt-32.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-6/apt-32-thumb.jpg",
+      "plan_image": "apartments/img/floor-6/apt-32.jpg",
+      "plan_thumb": "apartments/thumbs/floor-6/apt-32-thumb.jpg"
     },
     {
       "id": "A33",
@@ -470,7 +570,11 @@
       "ideal_pct": 2.888,
       "status": "available",
       "price": 306800,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-6/apt-33.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-6/apt-33-thumb.jpg",
+      "plan_image": "apartments/img/floor-6/apt-33.jpg",
+      "plan_thumb": "apartments/thumbs/floor-6/apt-33-thumb.jpg"
     },
     {
       "id": "A34",
@@ -483,7 +587,11 @@
       "ideal_pct": 2.4001,
       "status": "available",
       "price": 244800,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-6/apt-34.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-6/apt-34-thumb.jpg",
+      "plan_image": "apartments/img/floor-6/apt-34.jpg",
+      "plan_thumb": "apartments/thumbs/floor-6/apt-34-thumb.jpg"
     },
     {
       "id": "A35",
@@ -496,7 +604,11 @@
       "ideal_pct": 1.4242,
       "status": "available",
       "price": 139100,
-      "notes": ""
+      "notes": "",
+      "scheme_image": "apartments/scheme/floor-6/apt-35.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-6/apt-35-thumb.jpg",
+      "plan_image": "apartments/img/floor-6/apt-35.jpg",
+      "plan_thumb": "apartments/thumbs/floor-6/apt-35-thumb.jpg"
     },
     {
       "id": "A36",
@@ -509,7 +621,11 @@
       "ideal_pct": 2.4231,
       "status": "available",
       "price": 254800,
-      "notes": "С подпокривно пространство"
+      "notes": "С подпокривно пространство",
+      "scheme_image": "apartments/scheme/floor-7/apt-36.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-7/apt-36-thumb.jpg",
+      "plan_image": "apartments/img/floor-7/apt-36.jpg",
+      "plan_thumb": "apartments/thumbs/floor-7/apt-36-thumb.jpg"
     },
     {
       "id": "A37",
@@ -522,7 +638,11 @@
       "ideal_pct": 4.2345,
       "status": "available",
       "price": 458900,
-      "notes": "С подпокривно пространство"
+      "notes": "С подпокривно пространство",
+      "scheme_image": "apartments/scheme/floor-7/apt-37.jpg",
+      "scheme_thumb": "apartments/scheme-thumbs/floor-7/apt-37-thumb.jpg",
+      "plan_image": "apartments/img/floor-7/apt-37.jpg",
+      "plan_thumb": "apartments/thumbs/floor-7/apt-37-thumb.jpg"
     }
   ],
   "garages": [
